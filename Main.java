@@ -5,146 +5,130 @@ import Mod3_BackTracking.Backtracking;
 import Mod3_BackTracking.Booleano;
 import Mod3_BackTracking.Entero;
 
-/**
- * LABORATORIO DE ALGORITMOS - Punto de entrada
- * 
- * Este archivo contiene ejemplos practicos para estudiar los tres modulos:
- * 1. Modulo 1: Algoritmos de Ordenacion Basica
- * 2. Modulo 2: Divide y Venceras
- * 3. Modulo 3: Backtracking
- * 
- * Lee primero README.md y ESTRUCTURA.md
- * Descomenta el metodo que quieras ejecutar en main()
- * Ejecuta y observa los resultados
- * Modifica los ejemplos para aprender mas
- * 
- * @author Laboratorio de Algoritmos
- * @version 1.0
- */
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("╔════════════════════════════════════════╗");
-        System.out.println("║   LABORATORIO DE ALGORITMOS            ║");
-        System.out.println("╚════════════════════════════════════════╝");
+        System.out.println("════════════════════════════════════════");
+        System.out.println("   ALGORITHMS LABORATORY");
+        System.out.println("════════════════════════════════════════");
         System.out.println();
         
-        // TODO: Descomenta el metodo que quieras probar:
+        // TODO: Uncomment the method you want to test:
         
-        // ============ MODULO 1: ORDENACION ============
-        //ejerciciosOrdenacion();
+        // ============ MODULE 1: SORTING ============
+        //sortingExercises();
         
-        // ============ MODULO 2: DIVIDE Y VENCERAS ============
-        //ejerciciosDivideYVenceras();
+        // ============ MODULE 2: DIVIDE AND CONQUER ============
+        //divideAndConquerExercises();
         
-        // ============ MODULO 3: BACKTRACKING ============
-        // sumaEnterosBack();
-        // viajeCaballero();
-        // nReinas();
-        // mochilaOptima();
-        // monedasOptimo();
-        // caminoCosteExacto();
-        //colorearGrafo();
-        // ejerciciosBacktracking();
+        // ============ MODULE 3: BACKTRACKING ============
+        // subsetSumBack();
+        // knightsTour();
+        // nQueens();
+        // optimalKnapsack();
+        // optimalCoins();
+        // exactCostPath();
+        //colorGraph();
+        // backtrackingExercises();
     }
 
     // ====================================================================
-    //  MODULO 1: ALGORITMOS DE ORDENACION BASICA
+    //  MODULE 1: BASIC SORTING ALGORITHMS
     // ====================================================================
     
     /**
-     * Prueba todos los algoritmos de ordenacion basica
+     * Test all basic sorting algorithms
      */
-    public static void ejerciciosOrdenacion() {
-        System.out.println("\nMODULO 1: ORDENACION BASICA");
+    public static void sortingExercises() {
+        System.out.println("\nMODULE 1: BASIC SORTING");
         System.out.println("════════════════════════════════════════════════");
         
         int[] array = {9, 1, 8, 2, 7, 3, 6, 4, 5};
         
-        System.out.println("\nArray original:");
+        System.out.println("\nOriginal array:");
         Generador.imprimirArray(array);
         
         // --- Selection Sort ---
         System.out.println("\nSELECTION SORT - O(n²)");
-        System.out.println("Estrategia: Busca el minimo y lo intercambia");
+        System.out.println("Strategy: Find minimum and swap it");
         int[] arr1 = Generador.copiarArray(array);
         OrdenacionBasicos.selectionSort(arr1);
         Generador.estaOrdenado(arr1);
         
         // --- Insertion Sort ---
         System.out.println("\nINSERTION SORT - O(n²)");
-        System.out.println("Estrategia: Inserta cada elemento en su posicion");
+        System.out.println("Strategy: Insert each element in its position");
         int[] arr2 = Generador.copiarArray(array);
         OrdenacionBasicos.insertionSort(arr2);
         Generador.estaOrdenado(arr2);
         
         // --- Bubble Sort ---
         System.out.println("\nBUBBLE SORT - O(n²)");
-        System.out.println("Estrategia: Compara pares adyacentes");
+        System.out.println("Strategy: Compare adjacent pairs");
         int[] arr3 = Generador.copiarArray(array);
         OrdenacionBasicos.bubleSort(arr3);
         Generador.estaOrdenado(arr3);
         
-        // --- Bubble Sort Optimizado ---
-        System.out.println("\nBUBBLE SORT OPTIMIZADO - O(n²)");
-        System.out.println("Estrategia: Bubble con bandera de mejora");
+        // --- Optimized Bubble Sort ---
+        System.out.println("\nOPTIMIZED BUBBLE SORT - O(n²)");
+        System.out.println("Strategy: Bubble with improvement flag");
         int[] arr4 = Generador.copiarArray(array);
         OrdenacionBasicos.bubleSortOptimizado(arr4);
         Generador.estaOrdenado(arr4);
     }
 
     // ====================================================================
-    //  MODULO 2: DIVIDE Y VENCERAS
+    //  MODULE 2: DIVIDE AND CONQUER
     // ====================================================================
     
     /**
-     * Demuestra la estrategia de Divide y Venceras
+     * Demonstrates the Divide and Conquer strategy
      */
-    public static void ejerciciosDivideYVenceras() {
-        System.out.println("\nMODULO 2: DIVIDE Y VENCERAS");
+    public static void divideAndConquerExercises() {
+        System.out.println("\nMODULE 2: DIVIDE AND CONQUER");
         System.out.println("════════════════════════════════════════════════");
         
-        // --- Busqueda Binaria ---
-        System.out.println("\nBUSQUEDA BINARIA - O(log n)");
-        System.out.println("Requiere: Array ORDENADO");
+        // --- Binary Search ---
+        System.out.println("\nBINARY SEARCH - O(log n)");
+        System.out.println("Requires: Sorted array");
         int[] ordenado = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         System.out.println("Array: " + java.util.Arrays.toString(ordenado));
         
         boolean existe = DyV.contiene(ordenado, 5);
-        System.out.println("Contiene 5? " + (existe ? "SI" : "NO"));
+        System.out.println("Contains 5? " + (existe ? "YES" : "NO"));
         
         existe = DyV.contiene(ordenado, 10);
-        System.out.println("Contiene 10? " + (existe ? "SI" : "NO"));
+        System.out.println("Contains 10? " + (existe ? "YES" : "NO"));
         
         // --- Quick Sort ---
-        System.out.println("\nQUICK SORT - O(n log n) promedio");
-        System.out.println("Estrategia: Particiona por pivote, ordena recursivamente");
+        System.out.println("\nQUICK SORT - O(n log n) average");
+        System.out.println("Strategy: Partition by pivot, sort recursively");
         int[] array = {9, 1, 8, 2, 7, 3, 6, 4, 5};
         System.out.println("Original: " + java.util.Arrays.toString(array));
         DyV.quickSort(array);
         Generador.estaOrdenado(array);
         
-        // --- Maximo Subarray ---
-        System.out.println("\nMAXIMO SUBARRAY - O(n log n)");
-        System.out.println("Problema: Encontrar subarray con suma maxima");
+        // --- Maximum Subarray ---
+        System.out.println("\nMAXIMUM SUBARRAY - O(n log n)");
+        System.out.println("Problem: Find subarray with maximum sum");
         int[] arr = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
         System.out.println("Array: " + java.util.Arrays.toString(arr));
         int maxSum = DyV.maxSubarray(arr);
-        System.out.println("Suma maxima: " + maxSum);
+        System.out.println("Maximum sum: " + maxSum);
     }
 
     // ====================================================================
-    //  MODULO 3: BACKTRACKING
+    //  MODULE 3: BACKTRACKING
     // ====================================================================
     
     /**
-     * Problema: Encontrar un subconjunto que sume exactamente 'num'
+     * Problem: Find a subset that sums exactly to 'num'
      */
-    public static void sumaEnterosBack() {
-        System.out.println("\nMODULO 3: BACKTRACKING");
+    public static void subsetSumBack() {
+        System.out.println("\nMODULE 3: BACKTRACKING");
         System.out.println("════════════════════════════════════════════════");
-        System.out.println("\nSUMA DE SUBCONJUNTOS");
-        System.out.println("Problema: Existe un subconjunto que suma exactamente N?");
+        System.out.println("\nSUBSET SUM");
+        System.out.println("Problem: Does a subset exist that sums exactly N?");
         
         int[] vector = {13, 11, 7};
         int[] solucion = new int[vector.length];
@@ -152,14 +136,14 @@ public class Main {
         int suma = 0;
         
         System.out.println("Vector: " + java.util.Arrays.toString(vector));
-        System.out.println("Buscamos suma: " + num);
+        System.out.println("Looking for sum: " + num);
         
         Booleano exito = new Booleano(false);
         Backtracking.subconjuntoSuma3(vector, num, solucion, num, suma, exito);
         
         if (exito.getValor()) {
-            System.out.println("SOLUCION ENCONTRADA: ");
-            System.out.print("Subconjunto: ");
+            System.out.println("SOLUTION FOUND: ");
+            System.out.print("Subset: ");
             for (int i = 0; i < vector.length; i++) {
                 if (solucion[i] == 1) {
                     System.out.print(vector[i] + " ");
@@ -167,17 +151,17 @@ public class Main {
             }
             System.out.println();
         } else {
-            System.out.println("NO EXISTE SOLUCION");
+            System.out.println("NO SOLUTION EXISTS");
         }
     }
 
     /**
-     * Problema del Viaje del Caballero
+     * Knight's Tour Problem
      */
-    public static void viajeCaballero() {
-        System.out.println("\nVIAJE DEL CABALLERO");
-        System.out.println("Problema: Recorrida completa del caballero en tablero?");
-        System.out.println("(Puede tardar unos segundos...)");
+    public static void knightsTour() {
+        System.out.println("\nKNIGHT'S TOUR");
+        System.out.println("Problem: Complete knight tour on board?");
+        System.out.println("(Warning: This may take a few seconds...)");
         
         int[][] tablero = new int[6][6];
         tablero[0][0] = 1;
@@ -186,19 +170,19 @@ public class Main {
         Backtracking.viajeCaballero(tablero, 2, 0, 0, exito);
         
         if (exito.getValor()) {
-            System.out.println("SOLUCION ENCONTRADA!");
+            System.out.println("SOLUTION FOUND!");
             Generador.imprimirMatriz(tablero);
         } else {
-            System.out.println("NO EXISTE SOLUCION desde (0,0)");
+            System.out.println("NO SOLUTION exists from (0,0)");
         }
     }
 
     /**
-     * Problema de las N-Reinas
+     * N-Queens Problem
      */
-    public static void nReinas() {
-        System.out.println("\nPROBLEMA DE LAS N-REINAS");
-        System.out.println("Problema: Colocar 4 reinas sin que se amenacen");
+    public static void nQueens() {
+        System.out.println("\nN-QUEENS PROBLEM");
+        System.out.println("Problem: Place 4 queens without threatening each other");
         
         int N = 4;
         String[][] tablero = new String[N][N];
@@ -213,30 +197,30 @@ public class Main {
         Backtracking.reinas(damas, 0, exito);
         
         if (exito.getValor()) {
-            System.out.println("SOLUCION ENCONTRADA:");
+            System.out.println("SOLUTION FOUND:");
             for (int i = 0; i < N; i++) {
-                tablero[i][damas[i]] = " D ";
+                tablero[i][damas[i]] = " Q ";
             }
             Generador.imprimirTablero(tablero);
         } else {
-            System.out.println("NO EXISTE SOLUCION");
+            System.out.println("NO SOLUTION EXISTS");
         }
     }
 
     /**
-     * Problema de la Mochila 0/1
+     * 0/1 Knapsack Problem
      */
-    public static void mochilaOptima() {
-        System.out.println("\nPROBLEMA DE LA MOCHILA 0/1");
-        System.out.println("Problema: Llevar maximo valor con peso limitado");
+    public static void optimalKnapsack() {
+        System.out.println("\n0/1 KNAPSACK PROBLEM");
+        System.out.println("Problem: Carry maximum value with weight limit");
         
         int[] pesos = {3, 7, 2};
         int[] valores = {37, 21, 35};
         int maxPeso = 10;
         
-        System.out.println("Pesos:  " + java.util.Arrays.toString(pesos));
-        System.out.println("Valores: " + java.util.Arrays.toString(valores));
-        System.out.println("Peso maximo: " + maxPeso);
+        System.out.println("Weights:  " + java.util.Arrays.toString(pesos));
+        System.out.println("Values: " + java.util.Arrays.toString(valores));
+        System.out.println("Max weight: " + maxPeso);
         
         int[] sol = new int[pesos.length];
         int valorActual = 0;
@@ -248,23 +232,23 @@ public class Main {
         Backtracking.mochilaOptima(pesos, valores, maxPeso, 0, sol, valorActual, 
             pesoActual, mejorSol, valorMejor);
         
-        System.out.println("SOLUCION OPTIMA:");
-        System.out.println("Incluir: " + java.util.Arrays.toString(mejorSol));
-        System.out.println("Valor total: " + valorMejor.getValor());
+        System.out.println("OPTIMAL SOLUTION:");
+        System.out.println("Include: " + java.util.Arrays.toString(mejorSol));
+        System.out.println("Total value: " + valorMejor.getValor());
     }
 
     /**
-     * Problema del Cambio Optimo
+     * Optimal Change Problem
      */
-    public static void monedasOptimo() {
-        System.out.println("\nPROBLEMA DEL CAMBIO OPTIMO");
-        System.out.println("Problema: Cantidad minima de monedas para valor X");
+    public static void optimalCoins() {
+        System.out.println("\nOPTIMAL CHANGE PROBLEM");
+        System.out.println("Problem: Minimum number of coins for value X");
         
         int[] valores = {5, 10, 1};
         int cantidad = 12;
         
-        System.out.println("Monedas disponibles: " + java.util.Arrays.toString(valores));
-        System.out.println("Cantidad a dar: " + cantidad);
+        System.out.println("Available coins: " + java.util.Arrays.toString(valores));
+        System.out.println("Amount to make: " + cantidad);
         
         int numMonedasActual = 0;
         int resto = cantidad;
@@ -275,17 +259,17 @@ public class Main {
         Backtracking.monedasOptimo(valores, 0, sol, numMonedasActual, resto, 
             mejorSol, numMonedasMejor);
         
-        System.out.println("SOLUCION OPTIMA:");
-        System.out.println("Cantidad monedas: " + numMonedasMejor.getValor());
-        System.out.println("Combinacion: " + java.util.Arrays.toString(mejorSol));
+        System.out.println("OPTIMAL SOLUTION:");
+        System.out.println("Number of coins: " + numMonedasMejor.getValor());
+        System.out.println("Combination: " + java.util.Arrays.toString(mejorSol));
     }
 
     /**
-     * Problema: Camino con Coste Exacto
+     * Problem: Exact Cost Path
      */
-    public static void caminoCosteExacto() {
-        System.out.println("\nCAMINO CON COSTE EXACTO");
-        System.out.println("Problema: Existe camino de nodo 0 a 4 con coste 13?");
+    public static void exactCostPath() {
+        System.out.println("\nEXACT COST PATH");
+        System.out.println("Problem: Does a path exist from node 0 to 4 with cost 13?");
         
         int[][] grafo = {
             {0, 1, 0, 0, 0},
@@ -295,7 +279,7 @@ public class Main {
             {0, 0, 0, 5, 0}
         };
         
-        // Completar matriz (INF donde no hay arista)
+        // Complete matrix (INF where no edge)
         for (int i = 0; i < grafo.length; i++) {
             for (int j = 0; j < grafo.length; j++) {
                 if (i != j && grafo[i][j] == 0)
@@ -309,20 +293,20 @@ public class Main {
         boolean resul = Backtracking.caminoCosteExacto(grafo, 0, 4, costeObjetivo, camino);
         
         if (resul) {
-            System.out.println("CAMINO ENCONTRADO con coste " + costeObjetivo + ": ");
-            System.out.print("Nodos: ");
+            System.out.println("PATH FOUND with cost " + costeObjetivo + ": ");
+            System.out.print("Nodes: ");
             Generador.imprimirArray(camino.stream().mapToInt(i -> i).toArray());
         } else {
-            System.out.println("NO EXISTE camino con coste exacto " + costeObjetivo);
+            System.out.println("NO PATH exists with exact cost " + costeObjetivo);
         }
     }
 
     /**
-     * Problema de Coloreo de Grafos
+     * Graph Coloring Problem
      */
-    public static void colorearGrafo() {
-        System.out.println("\nCOLOREO DE GRAFOS");
-        System.out.println("Problema: Colorear vertices con minimo de colores");
+    public static void colorGraph() {
+        System.out.println("\nGRAPH COLORING");
+        System.out.println("Problem: Color vertices with minimum colors");
         
         int O = Integer.MAX_VALUE;
         int[][] grafo = {
@@ -334,18 +318,18 @@ public class Main {
         
         int[] colores = Backtracking.colorearGrafo(grafo);
         
-        System.out.println("SOLUCION:");
+        System.out.println("SOLUTION:");
         for (int i = 0; i < colores.length; i++) {
-            System.out.println("  Vertice " + i + " -> Color " + colores[i]);
+            System.out.println("  Vertex " + i + " -> Color " + colores[i]);
         }
     }
 
     /**
-     * Otros problemas de Backtracking
+     * Other Backtracking problems
      */
-    public static void ejerciciosBacktracking() {
-        System.out.println("\nOTROS PROBLEMAS CLASICOS");
-        System.out.println("(Descomenta dentro de este metodo para probar)");
+    public static void backtrackingExercises() {
+        System.out.println("\nOTHER CLASSIC PROBLEMS");
+        System.out.println("(Uncomment within this method to test)");
         
         int[] bienes = {5, 4, 1, 3, 6, 2};
         int[] subConjuntos = {4, 2, 5, 5, 1, 8};
@@ -354,7 +338,7 @@ public class Main {
         // resul = Backtracking.hayRepartoEquitativo(bienes);
         // resul = Backtracking.dosSubconjuntos(subConjuntos, 10);
         
-        if (resul) System.out.println("EXITO");
-        else System.out.println("NO EXISTE SOLUCION");
+        if (resul) System.out.println("SUCCESS");
+        else System.out.println("NO SOLUTION EXISTS");
     }
 }

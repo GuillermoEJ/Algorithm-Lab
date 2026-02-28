@@ -3,16 +3,16 @@ package Mod3_BackTracking;
 import java.util.Stack;
 
 public class Backtracking {
-    // ========= Algoritmos de Backtracking ============
+    // ========= Backtracking Algorithms ============
 
-    // Suma de enteros es num, arbol binario V1
+    // Subset sum equals num, binary tree V1
     public static void subconjuntoSuma (int[] vector, int num, int[] sol, int nivel, Booleano exito){
         if (nivel == vector.length){
             if (suma(sol, vector, nivel) == num)
                 exito.setValor(true);
         }
         else {
-            int c = 0; // Candidatos: c=0 no añadir, c=1 añadir
+            int c = 0; // Candidates: c=0 do not add, c=1 add
             while (!exito.getValor() && c < 2){
                 if (c == 0 || suma(sol, vector, nivel) + vector[nivel] <= num){ //poda
                     sol[nivel] = c;
@@ -37,7 +37,7 @@ public class Backtracking {
         return suma;
     }
 
-    // Suma de enteros es num, arbol binario V2
+    // Subset sum equals num, binary tree V2
     public static void subconjuntoSuma2(int[] vector, int num, int[] sol, int nivel, int suma, Booleano exito){
         if (nivel == vector.length){
             if ( suma == num) 
@@ -63,7 +63,7 @@ public class Backtracking {
         }
     }
 
-    // suma de enteros es num, árbol combinatorio
+    // Sum of integers equals num, combinatorial tree
     public static void subconjuntoSuma3 (int[] vector, int num, int[] sol, int id, int suma, Booleano exito){
         if (suma == num)
             exito.setValor(true);
@@ -90,7 +90,7 @@ public class Backtracking {
     }
 
 
-    // Viaje del Caballero 
+    // Knight's Tour 
     public static void viajeCaballero (int[][] tablero, int numMov, int x, int y, Booleano exito){
         if (numMov > tablero.length*tablero.length)
             exito.setValor(true);
@@ -152,7 +152,7 @@ public class Backtracking {
         return correcto;
     }
 
-    // ============================== [SELECCIÓN ÓPTIMA] =================================
+    // ============================== [OPTIMAL SELECTION] =================================
 
     // Problema de la Mochila 
     public static void mochilaOptima(int[] pesos, int[] valores, int maxPeso, int nivel, 
@@ -337,7 +337,7 @@ public class Backtracking {
         else {
             for (int i=0; i<grafo.length; i++){ // candidatos = todas las aristas del grafo
                 for (int j=0; j<grafo.length; j++){
-                    if (grafo[i][j] != Integer.MAX_VALUE && subgrafo[i][j] == Integer.MAX_VALUE){ // aceptable = existe en grafo y no está ya en subgrafo
+                    if (grafo[i][j] != Integer.MAX_VALUE && subgrafo[i][j] == Integer.MAX_VALUE){ // acceptable = exists in graph and not already in subgraph
                         subgrafo[i][j] = grafo[i][j];
                         coste += grafo[i][j];
                         Naristas++;

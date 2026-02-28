@@ -1,109 +1,101 @@
-# Laboratorio de Algoritmos Educativo
+# Educational Algorithms Laboratory
 
-Repositorio con implementaciones de algoritmos fundamentales organizados en tres paradigmas de diseño.
+Repository with implementations of fundamental algorithms organized in three design paradigms.
 
 ---
 
-## MODULO 1: Ordenacion Basica
+## MODULE 1: Basic Sorting
 
-**Concepto:** Algoritmos que reordenan elementos aplicando comparaciones e intercambios.
+**Concept:** Algorithms that reorder elements by applying comparisons and swaps.
 
-**Algoritmos:**
-- Selection Sort - O(n²) siempre
-- Insertion Sort - O(n²) promedio, O(n) mejor caso
-- Bubble Sort - O(n²) siempre
-- Bubble Sort Optimizado - O(n) mejor caso con bandera
+**Algorithms:**
+- Selection Sort - O(n²) always
+- Insertion Sort - O(n²) average, O(n) best case
+- Bubble Sort - O(n²) always
+- Optimized Bubble Sort - O(n) best case with flag
 
-**Cuando usarlo:** Para entender cómo funcionan los algoritmos básicos y aprender sobre complejidad.
+**When to use:** To understand how basic algorithms work and learn about complexity.
 
-**Ejecutar:**
 ```java
-ejerciciosOrdenacion();
+sortingExercises();
 ```
 
 ---
 
-## MODULO 2: Divide y Venceras
+## MODULE 2: Divide and Conquer
 
-**Concepto:** Divide el problema en subproblemas más pequeños, las resuelve recursivamente y combina resultados.
+**Concept:** Divides the problem into smaller subproblems, solves them recursively, and combines results.
 
-**Algoritmos:**
-- Busqueda Binaria - O(log n)
-- Quick Sort - O(n log n) promedio
-- Maximo Subarray - O(n log n)
-- Quick Select - O(n) promedio
-- Plus 10+ problemas adicionales
+**Algorithms:**
+- Binary Search - O(log n)
+- Quick Sort - O(n log n) average
+- Maximum Subarray - O(n log n)
+- Quick Select - O(n) average
+- Plus 10+ additional problems
 
-**Cuando usarlo:** Para problemas que se pueden descomponer de forma recursiva.
+**When to use:** For problems that can be decomposed recursively.
 
-**Ejecutar:**
 ```java
-ejerciciosDivideYVenceras();
+divideAndConquerExercises();
 ```
 
 ---
 
-## MODULO 3: Backtracking
+## MODULE 3: Backtracking
 
-**Concepto:** Explora todas las combinaciones posibles de forma recursiva, podando ramas inútiles.
+**Concept:** Explores all possible combinations recursively, pruning useless branches.
 
-**Algoritmos:**
-- Suma de Subconjuntos - Encontrar subconjunto con suma exacta
-- Viaje del Caballero - Recorrido completo en tablero sin repetir
-- Problema N-Reinas - Colocar N reinas sin que se amenacen
-- Mochila Optima - Maximizar valor con peso limitado
-- Cambio Optimo - Minimo numero de monedas
-- Camino con Coste Exacto - Ruta con longitud específica
-- Coloreo de Grafos - Colorear vertices con minimos colores
+**Algorithms:**
+- Subset Sum - Find subset with exact sum
+- Knight's Tour - Complete tour on board without repetition
+- N-Queens Problem - Place N queens without threatening each other
+- Optimal Knapsack - Maximize value with weight limit
+- Optimal Change - Minimum number of coins
+- Exact Cost Path - Route with specific length
+- Graph Coloring - Color vertices with minimum colors
 
-**Cuando usarlo:** Para problemas combinatorios y de búsqueda exhaustiva.
+**When to use:** For combinatorial problems and exhaustive search.
 
-**Ejecutar:**
 ```java
-sumaEnterosBack();      // Subconjuntos
-viajeCaballero();       // Caballero
-nReinas();              // N-Reinas
-mochilaOptima();        // Mochila
-monedasOptimo();        // Monedas
-caminoCosteExacto();    // Ruta
-colorearGrafo();        // Grafos
+subsetSumBack();        // Subsets
+knightsTour();          // Knight
+nQueens();              // N-Queens
+optimalKnapsack();      // Knapsack
+optimalCoins();         // Coins
+exactCostPath();        // Path
+colorGraph();           // Coloring
 ```
 
 ---
 
-## Como Usar
+## How to Use
 
-1. Abre `Main.java`
-2. Llama el metodo del algoritmo que quieres probar
-3. Ejecuta con Java
+1. Open `Main.java`
+2. Call the algorithm method you want to test
+3. Run with Java
 
-**Requisitos:** Java 8 o superior
+**Requirements:** Java 8 or higher
 
-**Estructura:**
+**Structure:**
 ```
-Laboratorio/
-├── Main.java           (Punto de entrada y ejemplos)
-├── Generador.java      (Utilidades para arrays)
-├── Mod1_Sort/          (Ordenacion)
-├── Mod2_DyV/           (Divide y Venceras)
+Laboratory/
+├── Main.java           (Entry point and examples)
+├── Generator.java      (Array utilities)
+├── Mod1_Sort/          (Sorting)
+├── Mod2_DyV/           (Divide and Conquer)
 └── Mod3_BackTracking/  (Backtracking)
 ```
 
 ---
 
-## Utilidades
+## Utilities
 
-La clase `Generador` proporciona:
-- `generarArrayAleatorio()` - Valores aleatorios
-- `generarArrayCasiOrdenado()` - Array casi ordenado
-- `generarArrayInverso()` - Array en orden inverso
-- `generarArrayConDuplicados()` - Array con duplicados
-- `estaOrdenado()` - Verifica orden
-- `imprimirArray()` - Imprime en consola
-- `imprimirMatriz()` - Imprime matrices
-- `imprimirTablero()` - Imprime tableros
-
----
-
-**Version:** 1.0  
-**Uso:** Educativo
+The `Generator` class provides:
+- `generateRandomArray()` - Random values
+- `generateNearlySorted()` - Nearly sorted array
+- `generateReverse()` - Reverse order array
+- `generateWithDuplicates()` - Array with duplicates
+- `isSorted()` - Verify order
+- `printArray()` - Print to console
+- `printMatrix()` - Print matrices
+- `printBoard()` - Print boards

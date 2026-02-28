@@ -1,142 +1,128 @@
 package Mod1_Sort;
 
-/**
- * MÓDULO 1: ALGORITMOS DE ORDENACIÓN BÁSICA
- * 
- * Contiene 4 algoritmos clásicos de ordenación para aprender:
- * - Cómo funcionan los algoritmos sencillos
- * - Análisis de complejidad temporal
- * - Comparación de eficiencia
- * 
- * TODOS modifican el array IN-PLACE (no retornan nada)
- * TODOS tienen complejidad O(n²) en el peor caso
- * 
- * @author Laboratorio de Algoritmos
- * @version 1.0
- */
 public class OrdenacionBasicos {
     
-    // ═════════════════════════════════════════════════════════════════════
+    // =====================================================================
     //  SELECTION SORT
-    // ═════════════════════════════════════════════════════════════════════
+    // =====================================================================
     
     /**
-     * SELECTION SORT - Ordenación por Selección
+     * SELECTION SORT - Selection Sorting
      * 
-     * Estrategia:
-     *   1. Busca el elemento más pequeño en la parte sin ordenar
-     *   2. Lo intercambia con el primero sin ordenar
-     *   3. Repite hasta que todo esté ordenado
+     * Strategy:
+     *   1. Find the smallest element in the unsorted part
+     *   2. Swap it with the first unsorted element
+     *   3. Repeat until everything is sorted
      * 
-     * Complejidad:
-     *   - Mejor caso: O(n²)
-     *   - Caso promedio: O(n²)
-     *   - Peor caso: O(n²)
-     *   - Espacio: O(1)
+     * Complexity:
+     *   - Best case: O(n²)
+     *   - Average case: O(n²)
+     *   - Worst case: O(n²)
+     *   - Space: O(1)
      * 
-     * Ventajas:
-     *   ✓ Simple de entender
-     *   ✓ Muy pocos movimientos (n-1)
+     * Advantages:
+     *   + Simple to understand
+     *   + Very few movements (n-1)
      * 
-     * Desventajas:
-     *   ✗ Siempre O(n²), incluso si está casi ordenado
+     * Disadvantages:
+     *   - Always O(n²), even if nearly sorted
      * 
-     * @param array Array a ordenar (se modifica in-place)
+     * @param array Array to sort (modified in-place)
      */
     public static void selectionSort(int[] array) {
         for (int i = 0; i < array.length; i++) {
-            int k = i;  // Índice del mínimo
+            int k = i;  // Index of minimum
             
-            // Buscar el mínimo en la parte sin ordenar
+            // Find minimum in unsorted part
             for (int j = i + 1; j < array.length; j++) {
                 if (array[j] < array[k]) {
                     k = j;
                 }
             }
             
-            // Intercambiar mínimo con posición i
+            // Swap minimum with position i
             int aux = array[i];
             array[i] = array[k];
             array[k] = aux;
         }
     }
 
-    // ═════════════════════════════════════════════════════════════════════
+    // =====================================================================
     //  INSERTION SORT
-    // ═════════════════════════════════════════════════════════════════════
+    // =====================================================================
     
     /**
-     * INSERTION SORT - Ordenación por Inserción
+     * INSERTION SORT - Insertion Sorting
      * 
-     * Estrategia:
-     *   1. Comienza con el 2º elemento
-     *   2. Inserta cada elemento en su posición correcta
-     *   3. Desplaza elementos mayores hacia la derecha
+     * Strategy:
+     *   1. Start with the 2nd element
+     *   2. Insert each element in its correct position
+     *   3. Shift larger elements to the right
      * 
-     * Complejidad:
-     *   - Mejor caso: O(n)        ← Si ya está ordenado!
-     *   - Caso promedio: O(n²)
-     *   - Peor caso: O(n²)
-     *   - Espacio: O(1)
+     * Complexity:
+     *   - Best case: O(n)        <- If already sorted!
+     *   - Average case: O(n²)
+     *   - Worst case: O(n²)
+     *   - Space: O(1)
      * 
-     * Ventajas:
-     *   ✓ O(n) si está casi ordenado
-     *   ✓ Estable (mantiene orden relativo)
-     *   ✓ Bueno para arrays pequeños
+     * Advantages:
+     *   + O(n) if nearly sorted
+     *   + Stable (maintains relative order)
+     *   + Good for small arrays
      * 
-     * Desventajas:
-     *   ✗ O(n²) en peor caso
+     * Disadvantages:
+     *   - O(n²) in worst case
      * 
-     * @param array Array a ordenar (se modifica in-place)
+     * @param array Array to sort (modified in-place)
      */
     public static void insertionSort(int[] array) {
         for (int i = 1; i < array.length; i++) {
-            int aux = array[i];  // Elemento a insertar
-            int k = i;           // Posición de inserción
+            int aux = array[i];  // Element to insert
+            int k = i;           // Insertion position
             
-            // Desplazar elementos mayores a la derecha
+            // Shift larger elements to the right
             while (k > 0 && array[k - 1] > aux) {
                 array[k] = array[k - 1];
                 k--;
             }
             
-            // Insertar en posición correcta
+            // Insert in correct position
             array[k] = aux;
         }
     }
 
-    // ═════════════════════════════════════════════════════════════════════
+    // =====================================================================
     //  BUBBLE SORT
-    // ═════════════════════════════════════════════════════════════════════
+    // =====================================================================
     
     /**
-     * BUBBLE SORT - Ordenación por Burbuja
+     * BUBBLE SORT - Bubble Sorting
      * 
-     * Estrategia:
-     *   1. Compara pares adyacentes de izquierda a derecha
-     *   2. Si están desordenados, los intercambia
-     *   3. Repite hasta que no haya más intercambios
+     * Strategy:
+     *   1. Compare adjacent pairs left to right
+     *   2. If out of order, swap them
+     *   3. Repeat until no more swaps
      * 
-     * Complejidad:
-     *   - Mejor caso: O(n²)
-     *   - Caso promedio: O(n²)
-     *   - Peor caso: O(n²)
-     *   - Espacio: O(1)
+     * Complexity:
+     *   - Best case: O(n²)
+     *   - Average case: O(n²)
+     *   - Worst case: O(n²)
+     *   - Space: O(1)
      * 
-     * Ventajas:
-     *   ✓ Simple de entender
-     *   ✓ Estable
+     * Advantages:
+     *   + Simple to understand
+     *   + Stable
      * 
-     * Desventajas:
-     *   ✗ Muy ineficiente, muchos intercambios
+     * Disadvantages:
+     *   - Very inefficient, many swaps
      * 
-     * @param array Array a ordenar (se modifica in-place)
+     * @param array Array to sort (modified in-place)
      */
     public static void bubleSort(int[] array) {
         for (int i = array.length - 1; i >= 0; i--) {
             for (int j = 0; j < i; j++) {
                 if (array[j] > array[j + 1]) {
-                    // Intercambiar
+                    // Swap
                     int aux = array[j];
                     array[j] = array[j + 1];
                     array[j + 1] = aux;
@@ -145,44 +131,44 @@ public class OrdenacionBasicos {
         }
     }
 
-    // ═════════════════════════════════════════════════════════════════════
-    //  BUBBLE SORT OPTIMIZADO
-    // ═════════════════════════════════════════════════════════════════════
+    // =====================================================================
+    //  OPTIMIZED BUBBLE SORT
+    // =====================================================================
     
     /**
-     * BUBBLE SORT OPTIMIZADO - Con Bandera de Mejora
+     * OPTIMIZED BUBBLE SORT - With Improvement Flag
      * 
-     * Estrategia:
-     *   - Como Bubble Sort, pero
-     *   - Detiene si no hay cambios en una pasada (está ordenado!)
+     * Strategy:
+     *   - Like Bubble Sort, but
+     *   - Stops if no changes in a pass (it's sorted!)
      * 
-     * Complejidad:
-     *   - Mejor caso: O(n)        ← Si ya está ordenado!
-     *   - Caso promedio: O(n²)
-     *   - Peor caso: O(n²)
-     *   - Espacio: O(1)
+     * Complexity:
+     *   - Best case: O(n)        <- If already sorted!
+     *   - Average case: O(n²)
+     *   - Worst case: O(n²)
+     *   - Space: O(1)
      * 
-     * Ventajas:
-     *   ✓ O(n) si ya está ordenado
-     *   ✓ Mejora sobre Bubble Sort estándar
+     * Advantages:
+     *   + O(n) if already sorted
+     *   + Improvement over standard Bubble Sort
      * 
-     * Desventajas:
-     *   ✗ Sigue siendo O(n²) en peor caso
+     * Disadvantages:
+     *   - Still O(n²) in worst case
      * 
-     * @param array Array a ordenar (se modifica in-place)
+     * @param array Array to sort (modified in-place)
      */
     public static void bubleSortOptimizado(int[] array) {
-        boolean ordenado = false;
+        boolean sorted = false;
         int i = array.length - 1;
 
-        while (!ordenado) {
-            ordenado = true;
-            for (int j=0; j<i; j++){
-                if (array[j]>array[j+1]){
+        while (!sorted) {
+            sorted = true;
+            for (int j = 0; j < i; j++) {
+                if (array[j] > array[j + 1]) {
                     int aux = array[j];
-                    array[j] = array[j+1];
-                    array[j+1] = aux;
-                    ordenado = false;
+                    array[j] = array[j + 1];
+                    array[j + 1] = aux;
+                    sorted = false;
                 }
             }
             i--;

@@ -1,10 +1,9 @@
 package Mod2_DyV;
 public class DyV {
-    // ========= ALGORITMOS DIVIDE Y VENCERÁS ==========
+    // ========= DIVIDE AND CONQUER ALGORITHMS ==========
 
 
-
-    // Búsqueda binaria (array ordenado) =================================================
+    // Binary search (sorted array) ================================================= 
     public static boolean contiene(int[] array, int num){
         return contieneAux(array, 0, array.length-1, num);
     }
@@ -24,7 +23,7 @@ public class DyV {
         }
     }
 
-    // Máximo Subarray ===================================================================
+    // Maximum Subarray ==================================================================
     public static int maxSubarray (int[] array){
         return maxSubarrayAux(array, 0, array.length-1);
     }
@@ -79,7 +78,7 @@ public class DyV {
     }
 
     // Quick Select ======================================================================
-    public static int quickSelect (int[] array, int k){ // busca el k-esimo valor más pequeño
+    public static int quickSelect (int[] array, int k){ // find k-th smallest value
         return kValor(array, 0, array.length-1, k);
     }
 
@@ -90,16 +89,16 @@ public class DyV {
             int m = ordenarPivote(array, i0, iN); // elemento que divide el array
 
             if (k <= iN-m)
-                return kValor(array, m+1, iN, k); // si el num está a la derecha
+                return kValor(array, m+1, iN, k); // if num is to the right
             else if (k == iN-m+1)
                 return array[m]; // si justo coincide que el num es m
             else 
-                return kValor(array, i0, m-1, k-(iN-m+1)); // si está a la izquierda
+                return kValor(array, i0, m-1, k-(iN-m+1)); // if to the left
         
         }
     }
 
-    // todos los elementos menores del pivote queden a la izquierda de éste,
+    // all elements smaller than pivot end up to its left,
     // y los elementos mayoresdel pivote queden a la derecha
     static int ordenarPivote(int[] array, int i0, int iN){
         int pivote = array[iN];
@@ -127,7 +126,7 @@ public class DyV {
         else return iN;
     }
 
-    // ==============[ EJERCICIOS ]==============
+    // ==============[ EXERCISES ]==============
 
     // Noviembre 2017
     public static int indiceIgual (int[] array){
@@ -278,7 +277,7 @@ public class DyV {
         return suma;
     }
 
-    // =============== EXÁMENES ==============  
+    // =============== EXAMS ==============  
 
     // Noviembre 2028
     public static int minArrayRotado (int[] array){
@@ -403,7 +402,7 @@ public class DyV {
             j++;
         }
 
-        return j-i+1; // +1 porque no se cuenta la posición en los extremos
+        return j-i+1; // +1 because position at extremes is not counted
 
     }
 
