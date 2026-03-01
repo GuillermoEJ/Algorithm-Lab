@@ -16,9 +16,6 @@ Repository with implementations of fundamental algorithms organized in three des
 
 **When to use:** To understand how basic algorithms work and learn about complexity.
 
-```java
-sortingExercises();
-```
 
 ---
 
@@ -35,9 +32,6 @@ sortingExercises();
 
 **When to use:** For problems that can be decomposed recursively.
 
-```java
-divideAndConquerExercises();
-```
 
 ---
 
@@ -55,14 +49,4 @@ divideAndConquerExercises();
 - Graph Coloring - Color vertices with minimum colors
 
 **When to use:** For combinatorial problems and exhaustive search.
-
-```java
-subsetSumBack();        // Subsets
-knightsTour();          // Knight
-nQueens();              // N-Queens
-optimalKnapsack();      // Knapsack
-optimalCoins();         // Coins
-exactCostPath();        // Path
-colorGraph();           // Coloring
-```
 
