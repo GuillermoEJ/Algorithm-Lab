@@ -66,36 +66,3 @@ exactCostPath();        // Path
 colorGraph();           // Coloring
 ```
 
----
-
-## How to Use
-
-1. Open `Main.java`
-2. Call the algorithm method you want to test
-3. Run with Java
-
-**Requirements:** Java 8 or higher
-
-**Structure:**
-```
-Laboratory/
-├── Main.java           (Entry point and examples)
-├── Generator.java      (Array utilities)
-├── Mod1_Sort/          (Sorting)
-├── Mod2_DyV/           (Divide and Conquer)
-└── Mod3_BackTracking/  (Backtracking)
-```
-
----
-
-## Utilities
-
-The `Generator` class provides:
-- `generateRandomArray()` - Random values
-- `generateNearlySorted()` - Nearly sorted array
-- `generateReverse()` - Reverse order array
-- `generateWithDuplicates()` - Array with duplicates
-- `isSorted()` - Verify order
-- `printArray()` - Print to console
-- `printMatrix()` - Print matrices
-- `printBoard()` - Print boards
