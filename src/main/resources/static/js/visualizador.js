@@ -35,6 +35,15 @@ const algoritmos = {
         mejorCaso: 'O(n)',
         peorCaso: 'O(n²)',
         casoPromedio: 'O(n²)'
+    },
+    quick: {
+        nombre: 'Quick Sort (Divide y Vencerás)',
+        desc: 'Divide el array usando un pivote y ordena recursivamente las particiones',
+        complejidad: 'O(n log n) promedio',
+        info: 'Quick Sort es un algoritmo de Divide y Vencerás. Elige un elemento pivote, particiona el array en elementos menores y mayores que el pivote, luego aplica recursivamente el algoritmo. Muy eficiente en la práctica.',
+        mejorCaso: 'O(n log n)',
+        peorCaso: 'O(n²)',
+        casoPromedio: 'O(n log n)'
     }
 };
 
@@ -232,6 +241,102 @@ async function bubbleSortAnimado(array) {
     actualizarStats();
 }
 
+// Quick Sort animado (Divide y Vencerás)
+async function quickSortAnimado(array) {
+    comparaciones = 0;
+    intercambios = 0;
+    tiempoInicio = Date.now();
+    
+    await quickSortAux(array, 0, array.length - 1);
+    
+    let colores = {};
+    for (let i = 0; i < array.length; i++) colores[i] = 'ordenado';
+    dibujarBarras(array, colores);
+    actualizarStats();
+}
+
+async function quickSortAux(array, i0, iN) {
+    if (!animando) return;
+    while (pausado) await esperar(100);
+    
+    if (i0 >= iN) return;
+    
+    let m = await ordenarPivoteAnimado(array, i0, iN);
+    await quickSortAux(array, i0, m - 1);
+    await quickSortAux(array, m + 1, iN);
+}
+
+async function ordenarPivoteAnimado(array, i0, iN) {
+    let pivote = array[iN];
+    let i = i0;
+    let j = iN - 1;
+    
+    while (i < j) {
+        if (!animando) return i0;
+        while (pausado) await esperar(100);
+        
+        while (array[i] <= pivote && i < j) {
+            if (!animando) return i0;
+            comparaciones++;
+            
+            let colores = {};
+            colores[i] = 'comparando';
+            colores[iN] = 'comparando';
+            dibujarBarras(array, colores);
+            actualizarStats();
+            
+            await esperar(510 - velocidad);
+            i++;
+        }
+        
+        while (array[j] > pivote && i < j) {
+            if (!animando) return i0;
+            comparaciones++;
+            
+            let colores = {};
+            colores[j] = 'comparando';
+            colores[iN] = 'comparando';
+            dibujarBarras(array, colores);
+            actualizarStats();
+            
+            await esperar(510 - velocidad);
+            j--;
+        }
+        
+        if (i < j) {
+            intercambios++;
+            let aux = array[i];
+            array[i] = array[j];
+            array[j] = aux;
+            
+            let colores = {};
+            colores[i] = 'intercambiando';
+            colores[j] = 'intercambiando';
+            dibujarBarras(array, colores);
+            actualizarStats();
+            
+            await esperar(510 - velocidad);
+        }
+    }
+    
+    if (array[i] > pivote) {
+        intercambios++;
+        array[iN] = array[i];
+        array[i] = pivote;
+        
+        let colores = {};
+        colores[iN] = 'intercambiando';
+        colores[i] = 'intercambiando';
+        dibujarBarras(array, colores);
+        actualizarStats();
+        
+        await esperar(510 - velocidad);
+        return i;
+    } else {
+        return iN;
+    }
+}
+
 // Actualizar estadísticas
 function actualizarStats() {
     document.getElementById('stat-comparaciones').textContent = comparaciones;
@@ -282,6 +387,8 @@ async function jugar() {
         await insertionSortAnimado(arrayActual);
     } else if (algoritmoSeleccionado === 'bubble') {
         await bubbleSortAnimado(arrayActual);
+    } else if (algoritmoSeleccionado === 'quick') {
+        await quickSortAnimado(arrayActual);
     }
     
     animando = false;

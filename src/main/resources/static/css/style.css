@@ -141,6 +141,16 @@ header p {
     box-shadow: 0 6px 20px rgba(243, 156, 18, 0.5);
 }
 
+.btn-dyv {
+    background: #9b59b6;
+    box-shadow: 0 4px 12px rgba(155, 89, 182, 0.3);
+}
+
+.btn-dyv:hover {
+    background: #8e44ad;
+    box-shadow: 0 6px 20px rgba(155, 89, 182, 0.5);
+}
+
 .btn:disabled {
     opacity: 0.5;
     cursor: not-allowed;

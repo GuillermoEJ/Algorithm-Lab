@@ -76,4 +76,51 @@ public class OrdenacionService {
             i--;
         }
     }
+
+    /**
+     * Quick Sort - Divide y Vencerás
+     * Elige un pivote y particiona el array recursivamente
+     * Complejidad Promedio: O(n log n)
+     * Peor caso: O(n²)
+     */
+    public static void quickSort(int[] array) {
+        quickSortAux(array, 0, array.length - 1);
+    }
+
+    private static void quickSortAux(int[] array, int i0, int iN) {
+        if (i0 >= iN) {
+            return;
+        } else {
+            int m = ordenarPivote(array, i0, iN);
+            quickSortAux(array, i0, m - 1);
+            quickSortAux(array, m + 1, iN);
+        }
+    }
+
+    private static int ordenarPivote(int[] array, int i0, int iN) {
+        int pivote = array[iN];
+        int i = i0;
+        int j = iN - 1;
+
+        while (i < j) {
+            while (array[i] <= pivote && i < j) {
+                i++;
+            }
+            while (array[j] > pivote && i < j) {
+                j--;
+            }
+
+            int aux = array[i];
+            array[i] = array[j];
+            array[j] = aux;
+        }
+
+        if (array[i] > pivote) {
+            array[iN] = array[i];
+            array[i] = pivote;
+            return i;
+        } else {
+            return iN;
+        }
+    }
 }
