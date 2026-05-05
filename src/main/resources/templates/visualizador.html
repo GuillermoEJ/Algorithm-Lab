@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio de Algoritmos - Visualizador</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 Laboratorio de Algoritmos</h1>
+            <p>Visualiza cómo funcionan los algoritmos de ordenamiento en tiempo real</p>
+        </header>
+
+        <section class="controles">
+            <div class="input-group">
+                <label for="tamaño">Tamaño del array:</label>
+                <input type="range" id="tamaño" min="5" max="100" value="20">
+                <span id="tamaño-valor">20</span>
+            </div>
+
+            <div class="algoritmos">
+                <h3>Selecciona algoritmo:</h3>
+                <button class="btn" onclick="seleccionarAlgoritmo('selection')">Selection Sort</button>
+                <button class="btn" onclick="seleccionarAlgoritmo('insertion')">Insertion Sort</button>
+                <button class="btn" onclick="seleccionarAlgoritmo('bubble')">Bubble Sort</button>
+                <button class="btn btn-reset" onclick="reiniciar()">Reiniciar</button>
+            </div>
+        </section>
+
+        <section class="visualizador">
+            <h2 id="algoritmo-titulo">Selecciona un algoritmo</h2>
+            <p id="algoritmo-desc"></p>
+            
+            <div id="barras" class="barras-contenedor"></div>
+
+            <div class="controles-animacion">
+                <button id="btn-play" onclick="jugar()" class="btn btn-play">▶ Play</button>
+                <button id="btn-pausa" onclick="pausar()" class="btn btn-pausa" disabled>⏸ Pausa</button>
+                <div class="velocidad-group">
+                    <input type="range" id="velocidad" min="10" max="500" value="100" 
+                           oninput="cambiarVelocidad(this.value)">
+                    <label>Velocidad: <span id="velocidad-valor">100%</span></label>
+                </div>
+            </div>
+
+            <div class="estadisticas">
+                <div class="stat">
+                    <span>Comparaciones:</span>
+                    <strong id="stat-comparaciones">0</strong>
+                </div>
+                <div class="stat">
+                    <span>Intercambios:</span>
+                    <strong id="stat-intercambios">0</strong>
+                </div>
+                <div class="stat">
+                    <span>Tiempo:</span>
+                    <strong id="stat-tiempo">0ms</strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-algoritmo">
+            <h3>ℹ️ Información del Algoritmo</h3>
+            <div id="info-completa">
+                <p style="color: #999;">Selecciona un algoritmo para ver más información</p>
+            </div>
+        </section>
+    </div>
+
+    <script th:src="@{/js/visualizador.js}"></script>
+</body>
+</html>
